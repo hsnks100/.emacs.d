@@ -8,7 +8,11 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-
+(set-face-attribute 'default nil
+                    :family "Fira Code"
+                    :height 110
+                    :weight 'bold
+                    :width 'normal)
 (define-key global-map (kbd "<escape>") 'keyboard-escape-quit)    
 (desktop-save-mode 1)
 
@@ -85,7 +89,18 @@
              :init :config
              (highlight-numbers-mode t)
              )
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 20) ; 최근 파일 목록 수
+(global-auto-revert-mode t)
+(setq initial-major-mode 'text-mode)
 
+(setq-default transient-mark-mode t)
+;백업파일 만들지 않기,
+(setq make-backup-files nil)
+
+;자동 저장 기능 끄기
+(setq auto-save-default nil)
 
 (use-package atom-one-dark-theme
              :ensure t
@@ -203,8 +218,35 @@
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
 
-(set-face-attribute 'default nil :height 140)
+(use-package auto-complete
+  :ensure t
+  :config
+  (global-auto-complete-mode t)
 
+  (define-key ac-completing-map (kbd "C-n") 'ac-next)
+  (define-key ac-completing-map (kbd "C-p") 'ac-previous)
+  )
+(use-package ws-butler
+  :ensure t
+  :config
+  (ws-butler-global-mode t)
+  )
+
+(use-package org-trello
+  :ensure t
+  )
+
+(set-face-attribute 'default nil :height 160)
+
+(setq scroll-step 1)
+(setq next-screen-context-lines 3)
+(setq search-highlight t)
+;상단 메뉴 숨기기
+(menu-bar-mode 0)
+
+
+;도구 모음 숨기기
+(tool-bar-mode 0)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -215,7 +257,8 @@
  '(global-linum-mode t)
  '(helm-completion-style 'emacs)
  '(package-selected-packages
-   '(treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs neotree smex helm airline-themes powerline atom-one-dark-theme highlight-numbers use-package ivy evil)))
+   '(org-trello org-ioslide org-page eyebrowse treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs neotree smex helm airline-themes powerline atom-one-dark-theme highlight-numbers use-package ivy evil))
+ '(ws-butler-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
