@@ -8,11 +8,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(set-face-attribute 'default nil
-                    :family "Fira Code"
-                    :height 110
-                    :weight 'bold
-                    :width 'normal)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
