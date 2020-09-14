@@ -251,10 +251,10 @@
 (menu-bar-mode 0)
 
 (prefer-coding-system 'utf-8)
-(setq default-input-method "korean-hangul390")
-(setq default-korean-keyboard "390")
+;; (setq default-input-method "korean-hangul390")
+;; (setq default-korean-keyboard "390")
 (setq jit-lock-defer-time 0.05)
 (global-set-key (kbd "C-SPC") 'toggle-input-method)
-
+(global-set-key (kbd "<Hangul>") 'toggle-input-method)
 
 #+END_SRC
