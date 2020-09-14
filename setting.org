@@ -127,10 +127,13 @@
                        ))
 (use-package helm
              :ensure t
-	     :bind(("M-x" . helm-smex)
-             )
+             ;;:bind(("M-x" . helm-smex))
 	     )
 
+(use-package helm-smex
+             :ensure t
+             :bind(("M-x" . helm-smex))
+             )
 (use-package treemacs
   :ensure t
   :defer t
@@ -254,6 +257,9 @@
 (setq default-input-method "korean-hangul390")
 (setq default-korean-keyboard "390")
 (setq jit-lock-defer-time 0.05)
+(setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+
 (global-set-key (kbd "C-SPC") 'toggle-input-method)
 
 
