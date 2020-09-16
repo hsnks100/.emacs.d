@@ -33,7 +33,6 @@
   (use-package try
     :ensure t
     )
-
   (use-package smooth-scrolling
     :ensure t
     :config
@@ -106,8 +105,11 @@
   (recentf-mode 1)
   (setq recentf-max-menu-items 20) ; 최근 파일 목록 수
   (global-auto-revert-mode t)
+  (global-undo-tree-mode -1)
   (setq initial-major-mode 'text-mode)
 
+  ;; (setf (cdr (assoc "cc" grep-files-aliases))
+  ;;       (assoc "cchh" grep-files-aliases))
   (which-function-mode)
 
   (setq-default transient-mark-mode t)
@@ -271,5 +273,19 @@
 
   (global-set-key (kbd "C-SPC") 'toggle-input-method)
   (global-set-key (kbd "<Hangul>") 'toggle-input-method)
+  '(grep-files-aliases
+   '(("all" . "* .[!.]* ..?*")
+     ("el" . "*.el")
+     ("ch" . "*.[ch]")
+     ("c" . "*.c")
+     ("cc" . "*.h *.cc *.cxx *.cpp *.C *.CC *.c++")
+     ("cchh" . "*.cc *.[ch]xx *.[ch]pp *.[CHh] *.CC *.HH *.[ch]++")
+     ("hh" . "*.hxx *.hpp *.[Hh] *.HH *.h++")
+     ("h" . "*.h")
+     ("l" . "[Cc]hange[Ll]og*")
+     ("m" . "[Mm]akefile*")
+     ("tex" . "*.tex")
+     ("texi" . "*.texi")
+     ("asm" . "*.[sS]")))
 
 #+END_SRC
