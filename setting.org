@@ -14,6 +14,7 @@
 
 * plugins
 
+
 #+BEGIN_SRC emacs-lisp
   (define-key global-map (kbd "<escape>") 'keyboard-escape-quit)
   (desktop-save-mode 1)
@@ -29,6 +30,12 @@
     (eshell-command
      (format "find %s -type f -name \"*.*\" | etags -" dir-name)))
 
+
+  (use-package amx
+    :ensure t
+    :config
+    (amx-mode t)
+    )
 
   (use-package try
     :ensure t
@@ -93,13 +100,6 @@
   (use-package csharp-mode
     :ensure t
     )
-  (use-package ivy
-               :ensure t
-               :init
-               :config
-               (ivy-mode t)
-               )
-
   (use-package highlight-numbers
                :ensure t
                :init :config
@@ -109,8 +109,7 @@
   (recentf-mode 1)
   (setq recentf-max-menu-items 20) ; 최근 파일 목록 수
   (global-auto-revert-mode t)
-  (global-undo-tree-mode -1)
-  (setq initial-major-mode 'text-mode)
+  ;; (global-undo-tree-mode -1)
 
   ;; (setf (cdr (assoc "cc" grep-files-aliases))
   ;;       (assoc "cchh" grep-files-aliases))
@@ -139,15 +138,15 @@
                                       (load-theme 'airline-dark t)
                                       )
                          ))
-  (use-package helm
-               :ensure t
-               ;;:bind(("M-x" . helm-smex))
-               )
+  ;; (use-package helm
+  ;;              :ensure t
+  ;;              ;;:bind(("M-x" . helm-smex))
+  ;;              )
 
-  (use-package helm-smex
-               :ensure t
-               :bind(("M-x" . helm-smex))
-               )
+  ;; (use-package ivy-smex
+  ;;              :ensure t
+  ;;              :bind(("M-x" . ivy-smex))
+  ;;              )
   (use-package treemacs
     :ensure t
     :defer t
@@ -255,11 +254,7 @@
     (ws-butler-global-mode t)
     )
 
-  (use-package org-trello
-    :ensure t
-    )
-
-  (set-face-attribute 'default nil :height 160)
+  (set-face-attribute 'default nil :height 140)
 
   ;; (setq scroll-step 1)
   ;; ;
