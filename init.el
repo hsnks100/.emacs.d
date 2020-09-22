@@ -33,7 +33,6 @@
      ("asm" . "*.[sS]")))
  '(helm-completion-style 'emacs)
  '(ivy-mode t)
- '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
    '(amx counsel smooth-scrolling try ivy-smex helm-smex smex-ivy csharp-mode csharp org-trello org-ioslide org-page eyebrowse treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs neotree smex helm airline-themes powerline atom-one-dark-theme highlight-numbers use-package ivy evil))
  '(treemacs-follow-mode t)
