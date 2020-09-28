@@ -95,6 +95,9 @@
     (define-key evil-normal-state-map (kbd "; a") 'ff-find-other-file)
     (define-key evil-normal-state-map (kbd ", fed") (lambda() (interactive) (find-file "~/.emacs.d/init.el")))
     (define-key evil-normal-state-map (kbd ", feR") (lambda() (interactive) (load-file "~/.emacs.d/init.el")))
+    (define-key evil-normal-state-map (kbd ", gwgw") (lambda() (interactive) (find-file "/sshx:175.123.88.134#3389|sshx:gwgw.com|sshx:aflxvsol12:~")))
+    ;; (define-key evil-normal-state-map (kbd ", gwgw") (lambda() (interactive) (find-file "/sshx:gwgw.com|sshx:aflxvsol12:~")))
+    (define-key evil-normal-state-map (kbd ", chat") (lambda() (interactive) (find-file "/sshx:175.123.88.134#3389|sshx:gwgw.com|sshx:root@203.238.139.141:~")))
     )
 
   (use-package csharp-mode
@@ -109,7 +112,8 @@
   (recentf-mode 1)
   (setq recentf-max-menu-items 20) ; 최근 파일 목록 수
   (global-auto-revert-mode t)
-  ;; (global-undo-tree-mode -1)
+  ;; (global-undo-tree-mode -1
+  ;; )
 
   ;; (setf (cdr (assoc "cc" grep-files-aliases))
   ;;       (assoc "cchh" grep-files-aliases))
