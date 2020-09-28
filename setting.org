@@ -1,4 +1,12 @@
 #+STARTIP: overview
+* basic setting
+(global-hl-line-mode +1)
+(line-number-mode +1)
+(global-display-line-numbers-mode 1)
+(column-number-mode t)
+(size-indication-mode t)
+
+
 * ui interface
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
@@ -59,6 +67,7 @@
     (setq evil-want-C-u-scroll t)
     :config
     (evil-mode t)
+    (define-key evil-normal-state-map (kbd "C-r") 'undo-redo)
     (evil-set-initial-state 'calendar-mode 'emacs)
     (evil-set-initial-state 'calculator-mode 'emacs)
     (evil-set-initial-state 'git-rebase-mode 'emacs)
@@ -73,6 +82,7 @@
     (defvar evil-want-Y-yank-to-eol t)
     (defvar evil-want-abbrev-expand-on-insert-exit nil)
 
+    (global-undo-tree-mode -1)
     (define-key evil-insert-state-map (kbd "C-SPC") 'toggle-input-method)
     (define-key evil-normal-state-map (kbd ", w") 'buffer-menu)
     (define-key evil-normal-state-map (kbd ", cc") 'compile)
@@ -112,8 +122,7 @@
   (recentf-mode 1)
   (setq recentf-max-menu-items 20) ; 최근 파일 목록 수
   (global-auto-revert-mode t)
-  ;; (global-undo-tree-mode -1
-  ;; )
+  (global-undo-tree-mode -1)
 
   ;; (setf (cdr (assoc "cc" grep-files-aliases))
   ;;       (assoc "cchh" grep-files-aliases))
