@@ -9,7 +9,8 @@
 
 * ui interface
 #+BEGIN_SRC emacs-lisp
-(load-theme 'deeper-blue)
+(add-hook 'after-init-hook (lambda ()(load-theme 'deeper-blue)))
+
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -54,9 +55,6 @@
     :config
     (smooth-scrolling-mode 1)
     (setq smooth-scroll-margin 5)
-    )
-  (use-package solarized-theme
-    :ensure t
     )
   (use-package evil
     :ensure t
@@ -136,12 +134,6 @@
   ;자동 저장 기능 끄기
   (setq auto-save-default nil)
 
-  (use-package atom-one-dark-theme
-               :ensure t
-               :init
-               :config
-               ;; (load-theme 'atom-one-dark t)
-               )
   (use-package powerline
                :ensure t
                :init
@@ -149,7 +141,7 @@
                          (use-package airline-themes
                            :ensure t
                                       :config
-                                      ;; (load-theme 'airline-dark t)
+                                      (load-theme 'airline-dark t)
                                       )
                          ))
   (use-package helm
