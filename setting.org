@@ -9,6 +9,7 @@
 
 * ui interface
 #+BEGIN_SRC emacs-lisp
+(load-theme 'deeper-blue)
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -39,11 +40,11 @@
      (format "find %s -type f -name \"*.*\" | etags -" dir-name)))
 
 
-  (use-package amx
-    :ensure t
-    :config
-    (amx-mode t)
-    )
+  ;; (use-package amx
+  ;;   :ensure t
+  ;;   :config
+  ;;   (amx-mode t)
+  ;;   )
 
   (use-package try
     :ensure t
@@ -82,7 +83,7 @@
     (defvar evil-want-Y-yank-to-eol t)
     (defvar evil-want-abbrev-expand-on-insert-exit nil)
 
-    (global-undo-tree-mode -1)
+    ;;(global-undo-tree-mode -1)
     (define-key evil-insert-state-map (kbd "C-SPC") 'toggle-input-method)
     (define-key evil-normal-state-map (kbd ", w") 'buffer-menu)
     (define-key evil-normal-state-map (kbd ", cc") 'compile)
@@ -122,7 +123,7 @@
   (recentf-mode 1)
   (setq recentf-max-menu-items 20) ; 최근 파일 목록 수
   (global-auto-revert-mode t)
-  (global-undo-tree-mode -1)
+  ;;(global-undo-tree-mode -1)
 
   ;; (setf (cdr (assoc "cc" grep-files-aliases))
   ;;       (assoc "cchh" grep-files-aliases))
@@ -139,7 +140,7 @@
                :ensure t
                :init
                :config
-               (load-theme 'atom-one-dark t)
+               ;; (load-theme 'atom-one-dark t)
                )
   (use-package powerline
                :ensure t
@@ -148,13 +149,16 @@
                          (use-package airline-themes
                            :ensure t
                                       :config
-                                      (load-theme 'airline-dark t)
+                                      ;; (load-theme 'airline-dark t)
                                       )
                          ))
-  ;; (use-package helm
-  ;;              :ensure t
-  ;;              ;;:bind(("M-x" . helm-smex))
-  ;;              )
+  (use-package helm
+               :ensure t
+               :config
+    (use-package helm-smex
+    :ensure t
+                :bind(("M-x" . helm-smex)))
+               )
 
   ;; (use-package ivy-smex
   ;;              :ensure t
