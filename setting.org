@@ -9,7 +9,7 @@
 
 * ui interface
 #+BEGIN_SRC emacs-lisp
-(add-hook 'after-init-hook (lambda ()(load-theme 'deeper-blue)))
+(add-hook 'after-init-hook (lambda ()(load-theme 'solarized-dark)))
 
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -185,6 +185,12 @@
     :ensure t
     :config
     (ws-butler-global-mode t)
+    )
+
+  (use-package rainbow-identifiers
+    :ensure t
+    :config
+    (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
     )
 
   (set-face-attribute 'default nil :height 140)
