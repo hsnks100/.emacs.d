@@ -66,7 +66,7 @@
     (setq evil-want-C-u-scroll t)
     :config
     (evil-mode t)
-    (define-key evil-normal-state-map (kbd "C-r") 'undo-redo)
+    ;; (define-key evil-normal-state-map (kbd "C-r") 'undo-redo)
     (evil-set-initial-state 'calendar-mode 'emacs)
     (evil-set-initial-state 'calculator-mode 'emacs)
     (evil-set-initial-state 'git-rebase-mode 'emacs)
