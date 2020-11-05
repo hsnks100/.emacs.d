@@ -50,6 +50,11 @@
   (use-package try
     :ensure t
     )
+  (use-package multi-web-mode
+    :ensure t
+    :config (setq mweb-default-major-mode 'html-mode)
+
+    )
   (use-package smooth-scrolling
     :ensure t
     :config
