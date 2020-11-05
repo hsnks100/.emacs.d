@@ -55,6 +55,12 @@
     :config (setq mweb-default-major-mode 'html-mode)
 
     )
+  (use-package undo-tree
+    :ensure t
+    :config
+    (global-undo-tree-mode t)
+
+    )
   (use-package smooth-scrolling
     :ensure t
     :config
@@ -71,6 +77,7 @@
     (setq evil-want-C-u-scroll t)
     :config
     (evil-mode t)
+    (evil-set-undo-system 'undo-tree)
     ;; (define-key evil-normal-state-map (kbd "C-r") 'undo-redo)
     (evil-set-initial-state 'calendar-mode 'emacs)
     (evil-set-initial-state 'calculator-mode 'emacs)
@@ -86,7 +93,6 @@
     (defvar evil-want-Y-yank-to-eol t)
     (defvar evil-want-abbrev-expand-on-insert-exit nil)
 
-    ;;(global-undo-tree-mode -1)
     (define-key evil-insert-state-map (kbd "C-SPC") 'toggle-input-method)
     (define-key evil-normal-state-map (kbd ", w") 'buffer-menu)
     (define-key evil-normal-state-map (kbd ", cc") 'compile)
